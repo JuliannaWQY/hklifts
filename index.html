@@ -8,6 +8,9 @@
     <meta name="description" content="Social Media Analytics Using R">
     <meta name="author" content="Julianna Wu">
     <script type="text/javascript" src="js/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
     <title>Everyday dangerous in the ageing lifts of Hong Kong</title>
 
     <!-- Bootstrap core CSS -->
@@ -27,6 +30,18 @@
         
         p {
             text-align: left
+        }
+        
+        #map {
+            height: 600px;
+        }
+        
+        #bigger {
+            font-size: 130%;
+            font-style: italic;
+            margin-left: 10%;
+            margin-right: 10%;
+            font-weight: bold
         }
     </style>
 
@@ -62,26 +77,114 @@
             <div class="col-lg-12 text-center">
                 <h1 class="mt-5">Hong Kong 2018 Legislative Council By-election Results</h1>
                 <h4 class="lead">Winning by political camps at each of the voting station:</h4>
-                <img src="1.jpg">
+                <p>Mandy Zheng never thought she’d experience this kind of movie plot in her real life: it was almost midnight of a cool autumn day in Hong Kong, the 24-year-old postgraduate student was trapped in the lift of her apartment alone with a bag
+                    of trash in her hand.</p>
+                <p>“I was going downstairs to throw out the trash,” said Mandy: “I didn’t even have my cellphone with me, and suddenly at around the third floor, in a big shake, the lift stopped. ”
+                </p>
+                <p>The 30-year-old lift inside which Mandy was trapped has no telecom, no camera. Besides the rusty door, the floor and wall inside the lift car was cracked.
+                </p>
+                <p>Shocked but calm, Mandy pressed the alarm button, the only emergency device, in the lift: “it rung, but in a very small volume that nobody heard and came to help,” said the Mandy: “there’s a seat of guard at the G floor of the building
+                    but I never see anybody there.” Besides, there’s no CCTV or any kinds of monitor device inside the timeworn lift.
+                </p>
+                <p>After spending 20 minutes alone in the lift helplessly, Mandy decided to use her bare hands to open the lift doors. Surprisingly, it worked. She got out and found herself somehow ended up at the G floor.
+                </p>
+                <p>Mandy is still angry and terrified by her lift entrapment experience, she’s not alone. As of December 31 2017, Hong Kong has 66,816 lifts in total, among which 22,272 were built three decades ago, according to the data of the Electrical
+                    and Mechanical Services Department (EMSD).
+                </p>
+                <p>As one of the most skyscrapers-dense cities in the world, one in three of Hong Kong’s lifts ages above 30 years, half of the total lifts were built 20 year ago. The lack of many modern technologies and devices within old lift system thus
+                    fail to prevent many lift incidents from happening when something goes wrong.
+                </p>
+            </div>
+            <div class="col-lg-5">
+                <img src="img/tu-3.jpg" style="height:800px;width:460px">
+            </div>
+            <div class="col-lg-7">
                 <br>
-                <p>As the map above shows, Hong Kong's two main political power seems to have received a pretty even result in the legislative council by-election that was held in March 2018. </p>
-                <p>Along the coast line of the Hong Kong Island, pro-establishments are winning over the pan-democrats. While at Kowloon side, the two camps divides the battle field evenly. Up in the New Territory East, though, green triangles, which stand
-                    for pan-democrats, are more than pro-establishment's blue squares.</p>
-                <p>However, look into the total number of votes the two parties got in each of the three geographical constituencies, we can get a clearer picture of the voting result:</p>
+                <p><i><strong>Hard to Modernise</strong></i>
+                </p>
+                <p>On April 8, 2018, a couple was injured in a lift accident at Tsuen Wan residential estate due to the lack of an unintended car movement protection device that could prevent the lift from smashing to the top, as reported by South China
+                    Morning Post.</p>
+                <p>Public data shows that the building of the problematic lift, Waterside Plaza, was built in 1991, while the protection device isn't available for lift application until 2007.
+                </p>
+                <p>“It’s difficult for lifts to be updated to the newest technologies,” said Lai Chun Fai, the senior electronics engineer of EMSD, also the secretary of the Lift and Escalator Safety Advisory Committee (LESAC).
+                </p>
+                <p>“Many technologies nowadays are not required by law or even invented by the time some lifts were installed,” said Lai: “it’s not an requirement for property owners to adapt the most recent design.”
+                </p>
+                <p>As a result, the only chance when property owners would apply new technology is when lift accidents happen or something goes wrong with the lift, said Lai.
+                </p>
+                <p>“The new devices are to make the lifts safer,” said the engineer: “it doesn’t mean a lift is not safe without them.”
+                </p>
+                <p>Though landlords and property management companies don’t have to apply the newest lift safety devices, EMSD has put out the modernisation scheme to encourage the owners of aged lifts to have the relevant equipment/device retrofitted since
+                    2011, as a Legislative Council report summarised.</p>
+                <p>In the guidebook, the government suggests to install various advanced lift devices like double brake system, ascending car overspeed protection device, intercom &amp; CCTV system to prevent the lift from ending up in accidents when the
+                    power or machine goes wrong.
+                </p>
+                <p>The automatic rescue devices, for example, “can prevent entrapment by using the back-up battery power to move the lift to the nearest landing floor and opens the doors to release the passengers when normal power supply fails,” said the
+                    guidebook.
+                </p>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-7" id="chart1">
+            <div class="col-lg-12">
+                <p>However, “the lift modernization programme has met with lukewarm response from lift owners,” said the 2017 report. (See the chart)
+                </p>
+                <p>“It costs time, money and space to renew the lifts,” said Lai: “for example, some old lifts don't have a engine room on the top of the building, then there’s no way you can add one to it in order to bring in new devices.”
+                </p>
+                <p>The monthly maintenance fee for a lift could range from HKD 3,000 to 17,000 HKD, depending on the number of levels it travels and the purpose of the lift, as EMSD found out from survey across lift companies in Hong Kong.
+                </p>
             </div>
-            <div class="col-lg-5">
-                <p> pro-establishments won in Kowloon West only with a 2000 voting advantage, while pan-democrat candidates out-numbered their opponents in both Kowloon West and New Territory East.</p>
-                <p>The two camps had a close number of final votes except for New Territory East, where pan-democrat candidate FAN Gary Kwok-wai beat pro-establichment camp's TANG Ka-piu with a 30k difference in votes.</p>
-                <p>Major finantial district of the city, including Central, Wan Chai and Admarlty, show higher support to pro-Beijing camp on the map, but their voting result tells a different story. At New Territory, where most local Hong Kong people are
-                    living, pan-democrats, who are more local-orientated, gain more support.</p>
+            <div class="col-lg-7">
+                <p><i><strong>Hard to fulfill the responsibilities</strong></i>
+                </p>
+                <p>Starting from 2012’s new Lifts and Escalators Ordinance, the owners, owner's corporation or property management company would be the responsible person for their building lifts’ wellbeing.
+                </p>
+                <p>All the lifts should be maintained at least once every month and thoroughly checked every six months by professional engineers, according to the ordinance. The use permit, on which the date of the next inspect is stated, should be put
+                    at the most obvious place of the lift.
+                </p>
+                <p>At the same time, the responsible person must keep a journal of all the events of their lifts.
+                </p>
+                <p>In reality, it’s hard for private property owners to meet these requirements, as Aung Kaung Myat, a wheelchair user as well as an university student finds out: “I find lifts at public places, like in the universities and museums, turn
+                    to be under maintenance more often than private places.”
+                </p>
+            </div>
+            <div class="col-lg-5" id="chart1">
+            </div>
+            <div class="col-lg-12">
+                <p>At the University of Hong Kong, for example, the lifts are always seen under maintenance, while at her home, Mandy never saw the only lift in her building under maintenance.
+                </p>
+                <p id="bigger">“It even remained the same statue as I broke out of it for more than 8 hours till the next morning,” said the 24-year-old girl.
+                </p>
+                <p>Mandy called the agent of her property that night, but the agent never informed her what happen next after saying that he would contact the landlord. “As a renter, I sometimes feel very frustrated by the fact that I don’t know how this
+                    building works, never know who to call for help when there’s no guard at all,” said Mandy.
+                </p>
+                <p>According to the law, failure for the responsible person to call relevant engineer and police when needed, keep the record of the lift or report big incident to the government within five days could end up in 12 months in prison or a penalty
+                    up to $50,000 HKD.
+                </p>
+                <p>The guard or daily manager of the building, according to the ordinance, also has duty to check and record down the statues of the lifts.
+                </p>
+                <p id="bigger">“I never see the real guard of our building since I moved in nine months ago,” said Mandy: “there’s only a sign of ‘on the patrol’ sits at the entrance.”
+                </p>
+                <p>Yisting Wang, a postgraduate student living alone at Jordan, is disappointed on his building’s guard as well, as he was trapped in the lift once and nobody came to help. Luckily he had his cell phone on hand, he ended up saved by the fireman
+                    crew.
+                </p>
+                <p>“It’s so ridiculous,” said the 24-year-old man: “there’s a CCTV in the lift, the guard downstairs can see what’s going on inside the lift in real time, but he didn’t seem to have noticed I was trapped or heard the emergency bell I rung.”
+                </p>
+                <p>Wang’s apartment, Woosung House, was built 30 years ago, with two floors being used as a hotel. The lift, whose capacity was originally five people, can only hold at most three people now, “as it’s been heavily used everyday by people
+                    living in the hotel,” said Wang.
+                </p>
+                <p>Uncle Chan, one of the building’s guards, admitted that they only call the lift company when accidents happened: “with these many people come and by everyday, we can’t afford to lose the lift for even one minute due to maintenance.”
+                </p>
+                <p>At the end of the day, Mandy looks forward to moving to her new apartment with her friends. The new place, though not very fancy, has a well-functional lift, a bigger and newer one than the one she was trapped.
+                </p>
+                <p>“I sometimes feel lucky that I have to choice to move out,” said the girl: “but the 90 something years’ old grandma who lives in the building, who depends on her son to walk up stairs, I don’t know what will happen to her if she’s trapped.”
+                </p>
+            </div>
+            <div class="col-lg-12 text-center" id="map">
             </div>
             <div class="col-lg-12 text-center">
                 <hr>
-                <p style="text-align:center">Sources: hkfp, gov.hk</p>
+                <p style="text-align:center">Sources: gov.hk</p>
+                <p class="text-center">(End)</p>
             </div>
         </div>
     </div>
@@ -91,6 +194,10 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/chart-bar.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type='text/javascript' src='js/markers.js'></script>
+    <script type='text/javascript' src='js/map.js'></script>
+
+
 
 </body>
 
