@@ -29,15 +29,3 @@ for (var i = 0; i < markers.length; ++i) {
             .addTo(map)
     }
 };
-
-var Legend = new L.Control.Legend({
-    position: 'topright',
-    collapsed: true,
-    controlButton: {
-        title: "Legend"
-    }
-});
-map.addControl(Legend);
-
-$(".legend-container").append($("#legend"));
-$(".legend-toggle").append("<i class='legend-toggle-icon fa fa-info fa-2x' style='color: #000'></i>");
