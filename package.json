@@ -27,7 +27,8 @@
     },
     "dependencies": {
         "bootstrap": "4.0.0",
-        "jquery": "3.3.1"
+        "jquery": "3.3.1",
+        "leaflet-html-legend": "^0.3.0"
     },
     "devDependencies": {
         "browser-sync": "2.23.6",
