@@ -1,8 +1,8 @@
 var map = L.map('map', {
     center: [
-        22.339742, 114.159926
+        22.295977, 114.171912
     ],
-    zoom: 10.5
+    zoom: 12
 });
 
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -15,7 +15,6 @@ for (var i = 0; i < markers.length; ++i) {
         L.circle([markers[i].lat, markers[i].lon], {
                 color: "#DB4D6D",
                 fillOpacity: 0.5,
-                radius: 30
             })
             .bindPopup('Address: ' + markers[i].address + '<br>' + '  Age: ' + markers[i].years)
             .addTo(map);
@@ -23,9 +22,18 @@ for (var i = 0; i < markers.length; ++i) {
         L.circle([markers[i].lat, markers[i].lon], {
                 color: "#0089A7",
                 fillOpacity: 0.5,
-                radius: 30
             })
             .bindPopup('Address: ' + markers[i].address + '<br>' + '  Age: ' + markers[i].years)
             .addTo(map)
     }
 };
+
+// var legend = L.control({ position: 'bottomright' });
+
+// var div = L.DomUtil.create('div', 'info legend')
+
+// div.innerHTML = "< svg height = '120', width = '200'><circle cx = ‘30‘cy = ’95’r = ‘15’style = ‘fill:blue’ > < /circle> <text x = ‘70’y = ‘102’style = ‘font-size:16px’ > Less than 30 years < /text> </svg>"
+// legend.onAdd = function(map) {
+//     return div;
+// };
+// legend.addTo(map);
